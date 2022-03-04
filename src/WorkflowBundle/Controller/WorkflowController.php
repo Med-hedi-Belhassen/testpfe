@@ -47,7 +47,7 @@ class WorkflowController extends Controller
     }
 
     /**
-     * @Route("/post")
+     * @Route("/edit")
      * @Method("POST")
      */
     public function newWorkflow(Request $request)
