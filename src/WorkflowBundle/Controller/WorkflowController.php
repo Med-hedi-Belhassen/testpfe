@@ -2,9 +2,7 @@
 
 namespace WorkflowBundle\Controller;
 
-use Doctrine\DBAL\DriverManager;
 use WorkflowBundle\Entity\workflow;
-use Doctrine\DBAL\Driver\PDOStatement;
 use WorkflowBundle\Services\WorkflowService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

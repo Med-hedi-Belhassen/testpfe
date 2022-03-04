@@ -2,7 +2,6 @@
 
 namespace WorkflowBundle\Services;
 
-use WorkflowBundle\Entity\workflow;
 use AppBundle\AppServices\CoreService;
 use WorkflowBundle\Repository\workflowRepository;
 
@@ -32,6 +31,7 @@ class WorkflowService extends CoreService
     public function GetById($id)
     {
         $w = $this->workflowRepository->findbyId($id);
+        // var_dump($w->getDescriptionW());
         return $w;
     }
     public function Delete($id)
@@ -42,6 +42,7 @@ class WorkflowService extends CoreService
     public function GetAll()
     {
         $allworkflows = $this->workflowRepository->find();
+        // var_dump($allworkflows);
         return $allworkflows;
     }
 }

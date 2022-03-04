@@ -23,7 +23,7 @@ class workflow
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -32,21 +32,21 @@ class workflow
      * @Accessor(getter="getNameW")
      * @ORM\Column(name="nameW", type="string", length=255)
      */
-    private $nameW;
+    protected $nameW;
 
     /**
      * @var string
      *
      * @ORM\Column(name="descriptionW", type="text")
      */
-    private $descriptionW;
+    protected $descriptionW;
 
     /**
      * @var string
      *
      * @ORM\Column(name="statusW", type="string", length=255)
      */
-    private $statusW;
+    protected $statusW;
     /**
      * Set id
      *
@@ -143,10 +143,25 @@ class workflow
         return $this->statusW;
     }
 
-    public function convert($workflow){
+    public function convert($workflow)
+    {
         $param = (array)$workflow;
-       
+
         return ($param);
     }
-}
+    public function __get($property)
+    {
+        var_dump(__METHOD__);
+        if (property_exists($this, $property)) {
+            return $this->$property;
+        }
+    }
 
+    public function __set($property, $value)
+    {
+        var_dump(__METHOD__);
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
+        }
+    }
+}
