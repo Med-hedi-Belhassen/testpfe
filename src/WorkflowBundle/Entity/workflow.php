@@ -2,6 +2,7 @@
 
 namespace WorkflowBundle\Entity;
 
+use AppBundle\Entity\CoreEntity;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Expose;
@@ -13,7 +14,7 @@ use JMS\Serializer\Annotation\Accessor;
  * @ORM\Table(name="workflow")
  * @ORM\Entity(repositoryClass="WorkflowBundle\Repository\workflowRepository")
  */
-class workflow
+class workflow extends CoreEntity
 {
 
     /**
@@ -148,20 +149,5 @@ class workflow
         $param = (array)$workflow;
 
         return ($param);
-    }
-    public function __get($property)
-    {
-        var_dump(__METHOD__);
-        if (property_exists($this, $property)) {
-            return $this->$property;
-        }
-    }
-
-    public function __set($property, $value)
-    {
-        var_dump(__METHOD__);
-        if (property_exists($this, $property)) {
-            $this->$property = $value;
-        }
     }
 }
